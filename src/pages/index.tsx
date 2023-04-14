@@ -1,8 +1,9 @@
 import { Card } from "@/components/Card";
 import checkIcon from "@/images/icon-check.svg";
 import { TiTick } from "react-icons/ti";
-import myImage from "@/images/icon-moon.svg";
+import  moonImage from "@/images/icon-moon.svg";
 import Image from "next/image";
+import crossImage from "@/images/icon-cross.svg";
 
 export default function Todo() {
   return (
@@ -11,7 +12,7 @@ export default function Todo() {
         <div className="flex justify-between">
           <div>TODO</div>
           <div>
-            <Image src={myImage} alt="" />
+            <Image src={moonImage} alt="" />
           </div>
         </div>
         <div className=" flex flex-col gap-4	">
@@ -27,8 +28,9 @@ export default function Todo() {
               />
             </div>
           </div>
-          <div className="flex flex-col gap-0">
-            <div className="flex gap-2 pl-2 items-center border border-black bg-white w-96 h-10 rounded-sm">
+          <div className="flex flex-col gap-0"> 
+            <div className="flex">
+            <div className="flex gap-2  items-center border border-black bg-white w-96 h-10 rounded-sm">
               <div className="rounded-full shadow-md">
                 {" "}
                 <TiTick className="text-black text-xl" />
@@ -36,6 +38,10 @@ export default function Todo() {
               <div className=" h-full w-full border text-center  outline-none">
                 task 1
               </div>
+              <div className="">
+              <Image src={crossImage} alt="" />
+              </div>
+            </div>
             </div>
             <div className="flex gap-2 justify-between p-2 text-xs items-center border border-black bg-white w-96 h-10 rounded-sm ">
               <div className="">5item left</div>
