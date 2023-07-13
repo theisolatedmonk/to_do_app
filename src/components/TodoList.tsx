@@ -14,9 +14,11 @@ type Props = {}
 export default function TodoList({}: Props) {
 const [activity, setActivity] = useState('')
 const [listData, setlistData] = useState([])
-const [style, setStyle] = useState("")
-const changeStyle = () => {
-    setStyle("line-through");
+const [styles, setStyles] = useState([])
+const changeStyle = (index) => {
+  const updatedStyles = [...styles];
+  updatedStyles[index] = "line-through";
+  setStyles(updatedStyles);
   };
 
 function addActivity(){
@@ -73,7 +75,7 @@ return (
     <div className="flex">
     <div className="flex gap-2 p-2 items-center border-b  bg-white w-full h-10 rounded-sm">
       <div className="hover:ring-1 flex items-center justify-center h-4 w-4 rounded-full ring-[hsl(192,100%,67%)] to-[hsl(280,87%,65%)]  ">
-        <button className="h-4 w-4  rounded-full focus:bg-gradient-to-r from-[hsl(192,100%,67%)] to-[hsl(280,87%,65%)] "  onClick={()=>changeStyle((index))}>
+        <button className="h-4 w-4  rounded-full focus:bg-gradient-to-r from-[hsl(192,100%,67%)] to-[hsl(280,87%,65%)] "  onClick={() => changeStyle(index)}>
           <Image
             className=" rounded-full h-4 w-4 p-1  shadow-md"
             src={checkImage}
@@ -82,7 +84,7 @@ return (
         </button>
       </div>
      
-      <div className={` ${style} h-full w-full  outline-none  text-lg flex items-center
+      <div className={`${styles[index]} h-full w-full  outline-none  text-lg flex items-center
       
 `}>
         Task:- 
